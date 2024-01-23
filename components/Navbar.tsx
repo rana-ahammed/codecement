@@ -6,7 +6,7 @@ export default function Navbar() {
       <div>
         <Link href='/'>
           <h1 className='text-4xl font-bold tracking-tighter text-dark'>
-            RanaDev
+            CodeCement
           </h1>
         </Link>
         <p className='text-sm'>

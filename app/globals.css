@@ -9,3 +9,28 @@
 h1 {
   @apply text-2xl font-bold;
 }
+
+h2 {
+  @apply text-2xl font-bold my-4;
+}
+
+p.content {
+  @apply leading-loose;
+}
+
+.link {
+  @apply text-[#7563DF] font-bold max-w-full overflow-hidden text-ellipsis;
+}
+
+.primary-btn {
+  @apply bg-slate-800 text-white rounded-md px-4 py-2;
+}
+
+input,
+textarea {
+  @apply border border-slate-300 px-4 py-2 rounded-md;
+}
+
+textarea {
+  @apply h-36;
+}
