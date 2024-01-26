@@ -83,6 +83,10 @@ export const categoriesData = [
   },
   {
     id: '4',
+    name: 'Web Dev',
+  },
+  {
+    id: '4',
     name: 'Programming',
   },
 ];

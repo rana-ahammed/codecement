@@ -28,60 +28,62 @@ export default function Post({
   const isEditable = true;
 
   return (
-    <section className='my-4 border-b-2 py-8'>
-      <div className='mb-4'>
-        Posted By: <span className='font-bold'>{author} </span>
+    <section className="my-4 border-b-2 py-8">
+      <div className="mb-4">
+        Posted By: <span className="font-bold">{author} </span>
         on {date}
       </div>
-      <div className='w-full h-72 relative'>
+      <div className="w-full h-72 relative">
         {thumbnail ? (
           <Image
             src={thumbnail}
             alt={title}
             fill
-            className='object-cover object-center rounded-md'
+            priority
+            className="object-cover object-center rounded-md"
           />
         ) : (
           <Image
             src={'/thumbnail-placeholder.png'}
             alt={title}
             fill
-            className='object-cover object-center rounded-md'
+            priority
+            className="object-cover object-center rounded-md"
           />
         )}
       </div>
 
       {category && (
         <Link
-          className='bg-slate-800 text-white rounded-md text-sm font-bold mt-4 block w-fit px-4 py-0.5'
+          className="bg-slate-800 text-white rounded-md text-sm font-bold mt-4 block w-fit px-4 py-0.5"
           href={`categories/${category}`}
         >
           {category}
         </Link>
       )}
       <h2>{title}</h2>
-      <p className='content'>{content}</p>
+      <p className="content">{content}</p>
 
       {links && (
-        <div className='my-4'>
+        <div className="my-4">
           {links.map((link, i) => (
-            <div key={i} className='flex gap-2 items-center'>
+            <div key={i} className="flex gap-2 items-center">
               <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
                 strokeWidth={1.5}
-                stroke='currentColor'
-                className='w-6 h-6'
+                stroke="currentColor"
+                className="w-6 h-6"
               >
                 <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244'
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
                 />
               </svg>
 
-              <Link className='link' href={link}>
+              <Link className="link" href={link}>
                 {link}
               </Link>
             </div>
@@ -90,7 +92,7 @@ export default function Post({
       )}
 
       {isEditable && (
-        <div className='bg-slate-200 font-bold py-2 px-4 rounded-md w-fit flex gap-3'>
+        <div className="bg-slate-200 font-bold py-2 px-4 rounded-md w-fit flex gap-5">
           <Link href={`/edit-post/${id}`}>Edit</Link>
           <DeleteButton />
         </div>
