@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: ExampleFont;
+  src: url(/path/to/fonts/examplefont.woff) format('woff'),
+    url(/path/to/fonts/examplefont.eot) format('eot');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
 .btn {
   @apply bg-slate-200 px-4 py-2 rounded-md font-semibold hover:scale-105 transition;
 }

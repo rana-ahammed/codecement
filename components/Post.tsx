@@ -42,8 +42,14 @@ export default async function Post({
   return (
     <section className="my-4 border-b-2 py-8">
       <div className="mb-4">
-        Posted By: <span className="font-bold">{author} </span>
-        on {formattedDate}
+        {author ? (
+          <>
+            Posted By: <span className="font-bold">{author} </span>
+            on {formattedDate}
+          </>
+        ) : (
+          <>Posted On {formattedDate}</>
+        )}
       </div>
       <div className="w-full h-72 relative">
         {thumbnail ? (
@@ -60,6 +66,7 @@ export default async function Post({
             alt={title}
             fill
             priority
+            sizes=""
             className="object-cover object-center rounded-md"
           />
         )}
@@ -106,7 +113,7 @@ export default async function Post({
       {isEditable && (
         <div className="bg-slate-200 font-bold py-2 px-4 rounded-md w-fit flex gap-5">
           <Link href={`/edit-post/${id}`}>Edit</Link>
-          <DeleteButton />
+          <DeleteButton id={id} />
         </div>
       )}
     </section>
