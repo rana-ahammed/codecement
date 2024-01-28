@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { CldUploadButton, CldUploadWidgetResults } from 'next-cloudinary';
 import Image from 'next/image';
+import toast from 'react-hot-toast';
 
 export default function CreatePostForm() {
   const [links, setLinks] = useState<string[]>([]);
@@ -16,7 +17,6 @@ export default function CreatePostForm() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [publicId, setPublicId] = useState('');
-  const [error, setError] = useState('');
 
   const router = useRouter();
 
@@ -45,7 +45,7 @@ export default function CreatePostForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !content) {
-      setError('Title and Content are required');
+      toast.error('Title and Content are required');
       return;
     }
 
@@ -66,9 +66,12 @@ export default function CreatePostForm() {
       });
 
       if (res.ok) {
+        toast.success('Post has been created successfully');
         router.push('/dashboard');
+        router.refresh();
       }
     } catch (error) {
+      toast.error('Something went wrong');
       console.log(error);
     }
   };
@@ -99,8 +102,6 @@ export default function CreatePostForm() {
       const public_id = info.public_id as string;
       setImageUrl(url);
       setPublicId(public_id);
-      console.log('url', url);
-      console.log('public_id', public_id);
     }
   };
 
@@ -231,7 +232,6 @@ export default function CreatePostForm() {
         <button className="primary-btn" type="submit">
           Create Post
         </button>
-        {error && <div className="p-2 text-red-500 font-bold">{error}</div>}
       </form>
     </div>
   );

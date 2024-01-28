@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { CldUploadButton, CldUploadWidgetResults } from 'next-cloudinary';
+import toast from 'react-hot-toast';
 
 export default function EditPostForm({ post }: { post: TPost }) {
   const [links, setLinks] = useState<string[]>([]);
@@ -16,7 +17,6 @@ export default function EditPostForm({ post }: { post: TPost }) {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [publicId, setPublicId] = useState('');
-  const [error, setError] = useState('');
 
   const router = useRouter();
 
@@ -64,7 +64,7 @@ export default function EditPostForm({ post }: { post: TPost }) {
     e.preventDefault();
 
     try {
-      const res = await fetch('api/removeImage', {
+      const res = await fetch('/api/removeImage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ publicId }),
@@ -82,7 +82,7 @@ export default function EditPostForm({ post }: { post: TPost }) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !content) {
-      setError('Title and Content are required.');
+      toast.error('Title and Content are required.');
       return;
     }
 
@@ -103,9 +103,12 @@ export default function EditPostForm({ post }: { post: TPost }) {
       });
 
       if (res.ok) {
+        toast.success('Post has been edited successfully');
         router.push('/dashboard');
+        router.refresh();
       }
     } catch (error) {
+      toast.error('Something went wrong');
       console.log(error);
     }
   };
@@ -117,8 +120,6 @@ export default function EditPostForm({ post }: { post: TPost }) {
       const public_id = info.public_id as string;
       setImageUrl(url);
       setPublicId(public_id);
-      console.log('url', url);
-      console.log('public_id', public_id);
     }
   };
 
