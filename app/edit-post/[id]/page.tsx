@@ -1,4 +1,4 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/app/api/auth/[...nextauth]';
 import { TPost } from '@/app/types';
 import EditPostForm from '@/components/EditPostForm';
 import { getServerSession } from 'next-auth';
@@ -27,5 +27,5 @@ export default async function EditPost({ params }: { params: { id: string } }) {
   }
   const id = params.id;
   const post = await getPost(id);
-  return <EditPostForm post={post} />;
+  return <>{post ? <EditPostForm post={post} /> : <div>Invalid Post</div>}</>;
 }

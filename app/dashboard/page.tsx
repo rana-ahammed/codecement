@@ -1,10 +1,9 @@
-import { postsData } from '@/data';
 import Post from '@/components/Post';
 import Link from 'next/link';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
 import { TPost } from '../types';
+import { authOptions } from '../api/auth/[...nextauth]';
 
 const getPosts = async (email: string) => {
   try {
