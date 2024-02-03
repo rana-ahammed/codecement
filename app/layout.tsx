@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'CodeLatest',
   description: 'CodeLatest is a programming blog website',
-  themeColor: '#4285f4',
+  themeColor: 'red',
   manifest: '/manifest.json',
 };
 
