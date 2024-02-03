@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'CodeLatest',
   description: 'CodeLatest is a programming blog website',
-  themeColor: 'red',
+  themeColor: 'cyan',
   manifest: '/manifest.json',
 };
 
@@ -25,8 +25,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <meta name="theme-color" content="#4285f4" />
-        <link rel="manifest" href="/manifest.json" />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content="cyan"
+        />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content="black"
+        />
       </Head>
       <Script
         async
