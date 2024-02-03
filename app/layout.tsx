@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'CodeLatest',
   description: 'CodeLatest is a programming blog website',
   themeColor: '#4285f4',
-  manifest: '/manifest.webmanifest',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
@@ -42,11 +42,8 @@ export default function RootLayout({
         }}
       ></Script>
       <Head>
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: dark)"
-          content="#4285f4"
-        />
+        <meta name="theme-color" content="#4285f4" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <NextAuthProvider>
