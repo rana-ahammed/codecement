@@ -43,7 +43,7 @@ export default function DeleteButton({ id }: { id: string }) {
   };
 
   return (
-    <button onClick={handleDelete} className="text-red-600">
+    <button onClick={handleDelete} className="text-red-800">
       Delete
     </button>
   );
