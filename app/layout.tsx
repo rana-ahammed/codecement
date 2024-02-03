@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
@@ -13,8 +13,11 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'CodeLatest',
   description: 'CodeLatest is a programming blog website',
-  themeColor: 'cyan',
   manifest: '/manifest.json',
+};
+
+export const viewport: Viewport = {
+  themeColor: '#4285f4',
 };
 
 export default function RootLayout({
@@ -24,18 +27,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: light)"
-          content="cyan"
-        />
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: dark)"
-          content="black"
-        />
-      </Head>
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?
