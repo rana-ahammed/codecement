@@ -6,7 +6,6 @@ import Footer from '@/components/Footer';
 import { NextAuthProvider } from '@/components/Providers';
 import { Toaster } from 'react-hot-toast';
 import Script from 'next/script';
-import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -39,8 +38,9 @@ export default function RootLayout({
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
-          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+            page_path: window.location.pathname,
+          });
         `,
         }}
       ></Script>
