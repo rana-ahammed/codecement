@@ -35,7 +35,9 @@ export default function RootLayout({
           </div>
           <Toaster />
         </NextAuthProvider>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+        <GoogleAnalytics
+          gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string}
+        />
       </body>
     </html>
   );
