@@ -24,6 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <meta name="theme-color" content="#4285f4" />
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?
@@ -41,10 +45,7 @@ export default function RootLayout({
         `,
         }}
       ></Script>
-      <Head>
-        <meta name="theme-color" content="#4285f4" />
-        <link rel="manifest" href="/manifest.json" />
-      </Head>
+
       <body className={inter.className} suppressHydrationWarning={true}>
         <NextAuthProvider>
           <div className="lg:max-w-[900px] lg:px-16 mx-auto py-8 shadow-xl min-h-screen flex flex-col px-8">
