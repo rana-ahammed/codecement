@@ -41,7 +41,7 @@ export default function RootLayout({
         }}
       ></Script>
       <Head>
-        <meta name="theme-color" content="#317EFB" />
+        <meta name="theme-color" content="#4285f4" />
       </Head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <NextAuthProvider>
