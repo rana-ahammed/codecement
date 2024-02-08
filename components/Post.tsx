@@ -67,6 +67,7 @@ export default async function Post({
             fill
             priority
             sizes=""
+            placeholder="blur"
             className="object-cover object-center rounded-md"
           />
         )}

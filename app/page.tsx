@@ -4,9 +4,7 @@ import { TPost } from './types';
 
 const getPosts = async (): Promise<TPost[] | null> => {
   try {
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts`, {
-      cache: 'no-store',
-    });
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts`);
     if (res.ok) {
       const posts = await res.json();
       return posts;

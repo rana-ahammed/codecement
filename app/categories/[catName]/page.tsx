@@ -1,3 +1,4 @@
+import prisma from '@/lib/prismadb';
 import { TPost } from '@/app/types';
 import CategoriesList from '@/components/CategoriesList';
 import Post from '@/components/Post';
@@ -5,8 +6,7 @@ import Post from '@/components/Post';
 const getPosts = async (catName: string): Promise<TPost[] | null> => {
   try {
     const res = await fetch(
-      `${process.env.NEXTAUTH_URL}/api/categories/${catName}`,
-      { cache: 'no-store' }
+      `${process.env.NEXTAUTH_URL}/api/categories/${catName}`
     );
 
     if (res.ok) {
