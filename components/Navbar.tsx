@@ -31,7 +31,7 @@ export default function Navbar() {
       <div>
         <Link href="/">
           <h1 className="text-4xl font-bold tracking-tighter text-dark">
-            CodeCement
+            CodeLatest
           </h1>
         </Link>
         <p className="text-sm">
